@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/settings.scss%}">
+  <title>Settings Page</title>
+</head>
+<body>
+  <header>
+    <h1>Settings</h1>
+  </header>
+  <main id="settings">
+    <div class="setting">
+      <label for="username">Username:</label>
+      <input type="text" id="username">
+    </div>
+    <div class="setting">
+      <label for="email">Email:</label>
+      <input type="email" id="email">
+    </div>
+    <div class="setting">
+      <label for="notification">Receive Notifications:</label>
+      <input type="checkbox" id="notification">
+    </div>
+    <button id="save-btn">Save Settings</button>
+  </main>
+  <script src="{% static 'js/settings.js%}"></script>
+</body>
+</html>
+
