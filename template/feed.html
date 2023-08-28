@@ -7,23 +7,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles Feed</title>
     <link rel="stylesheet" href="{% static 'css/feed.css' %}">
+    <link rel="stylesheet" href="{% static 'css/article-preview.css' %}">
+<style>
+  .image-section {
+
+  }
+</style>
 </head>
 <body>
-        <header class="main-header">
-        <div class="header-left">
-            <img src="media/logo1.png" alt="Left Image">
-        </div>
+      <header class="main-header">
+      <div class="header-left">
+          <img src="media/logo1.png" alt="Left Image">
+      </div>
 
-        <div class="search__container">
-            <input class="search__input" type="text" placeholder="Search">
-        </div>
+      <div class="search__container">
+          <input class="search__input" type="text" placeholder="Search">
+      </div>
 
-        <div class="header-right">
-            {% if user_profile.partnership %}
-                <img id='add_post'src="media/plus.png" alt="">
-                {% endif %}
-            <img src="{{ user_profile.profile_img.url }}" alt="">
+      <div class="header-right">
+          {% if user_profile.partnership %}
+              <img id='add_post'src="media/plus.png" alt="">
+              {% endif %}
+          <img src="{{ user_profile.profile_img.url }}" alt="">
+      </div>
+  </header>
+  {% for post in posts reversed %}
+       <div class="main-container">
+    <div class="grid-container">
+      <div class="image-section" style="background-image: url('{{post.cover_img.url}}')";></div>
+      <div class="content-section">
+        <div class="label-container">
+          <span class="label">Label</span>
         </div>
-    </header>
+        <h1 class="title">{{post.title}}</h1>
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, reprehenderit adipisci tempore voluptalaborum quod.
+        </p>
+        <a class="read-more" href="#">Read more</a>
+        <div class="footer-info">
+          <div class="author-info">
+            <span class="author-name">by {{post.user}}</span>
+          </div>
+          <span class="read-time">3 min read</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+
        </body>
 </html>
