@@ -10,13 +10,20 @@ import random
 @login_required(login_url="signin")
 def feed(request):
     user_object = User.objects.get(username=request.user.username)
-    posts = Post.objects.all()  
+    posts = Post.objects.all()
+    # content_words = Post.content.split()
+    # content_word_count = len(content_words)
+    # min_read = content_word_count / 200
     try:
         user_profile = Profile.objects.get(user=user_object)
     except:
         return redirect("/signin")
 
-    return render(request, "feed.html", {"user_profile": user_profile, "posts": posts})
+    return render(
+        request,
+        "feed.html",
+        {"user_profile": user_profile, "posts": posts ''', "min_read": int(min_read)'''},
+    )
 
 
 @login_required(login_url="signin")

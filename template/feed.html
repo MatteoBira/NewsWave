@@ -28,9 +28,10 @@
           {% if user_profile.partnership %}
               <img id='add_post'src="media/plus.png" alt="">
               {% endif %}
-          <img src="{{ user_profile.profile_img.url }}" alt="">
+          <img class="profile_img" src="{{ user_profile.profile_img.url }}" alt="">
       </div>
   </header>
+  <!--  <div id='posts_container'> -->
   {% for post in posts reversed %}
        <div class="main-container">
     <div class="grid-container">
@@ -47,13 +48,13 @@
           <div class="author-info">
             <span class="author-name">by {{post.user}}</span>
           </div>
-          <span class="read-time">3 min read</span>
+          <span class="read-time">{{min_read}}</span>
         </div>
       </div>
     </div>
   </div>
   {% endfor %}
-
+  <!--</div> -->
 
        </body>
 </html>
