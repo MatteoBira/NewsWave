@@ -38,17 +38,20 @@
       <div class="image-section" style="background-image: url('{{post.cover_img.url}}')";></div>
       <div class="content-section">
         <div class="label-container">
-          <span class="label">Label</span>
+          <div class="author-info">
+            <span class="author-name">by <a href="#"><b>{{post.user}}</b></a></span>
+            <span class="separator"> &middot; </span>
+            <span class="date">{{post.formatted_date}}</span>
+
+          </div>
+
         </div>
         <h1 class="title">{{post.title}}</h1>
-        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, reprehenderit adipisci tempore voluptalaborum quod.
-        </p>
-        <a class="read-more" href="#">Read more</a>
+        <p class="description">{{post.description}}</p>
+
         <div class="footer-info">
-          <div class="author-info">
-            <span class="author-name">by {{post.user}}</span>
-          </div>
-          <span class="read-time">{{min_read}}</span>
+          <a class="read-more" href="#">Read more</a>
+          <span class="read-time">{{post.min_read}} min read</span>
         </div>
       </div>
     </div>

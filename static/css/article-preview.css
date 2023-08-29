@@ -13,7 +13,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    height: 100%;
+    height: 30vh;
 }
 
 .image-section {
@@ -24,6 +24,7 @@
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
     height: 100%;
+    max-height: 30vh;
 }
 
 .content-section {
@@ -42,7 +43,7 @@
 }
 
 .title {
-    font-size: 24px;
+    font-size: 27px;
     font-weight: bold;
     padding-top: 3%;
 }
@@ -74,10 +75,10 @@
 }
 
 .author-name {
-    font-size: 12px;
+    font-size: 17px;
 }
 
 .read-time {
-    font-size: 10px;
+    font-size: 15px;
 }
 

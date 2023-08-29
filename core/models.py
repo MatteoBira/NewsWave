@@ -25,7 +25,22 @@ class Post(models.Model):
     cover_img = models.ImageField(upload_to="post_images")
     title = models.TextField(max_length=100)
     content = models.TextField()
+    description = models.TextField(default="this is a description", blank="False")
     date = models.DateTimeField(default=datetime.now)
+    min_read = models.IntegerField(default=1)  # Default value for min_read
+
+    def formatted_date(self):
+        return self.date.strftime("%-m/%-d/%y")
+
+    def minute_of_reading(self, content: str) -> int:
+        words = content.split()
+        words_count = len(words)
+        return int(words_count / 200)
+
+    def save(self, *args, **kwargs):
+        # Calculate min_read using the minute_of_reading method
+        self.min_read = self.minute_of_reading(self.content) + 1
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.user

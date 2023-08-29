@@ -20,6 +20,12 @@ body {
     box-sizing: border-box;
 }
 
+a {
+  text-decoration: none; /* Remove underlines */
+  color: inherit; /* Inherit the color from the parent element */
+  font-weight: normal; /* Set font weight to normal */
+}
+
 /* Base styling */
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
 

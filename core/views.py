@@ -11,9 +11,6 @@ import random
 def feed(request):
     user_object = User.objects.get(username=request.user.username)
     posts = Post.objects.all()
-    # content_words = Post.content.split()
-    # content_word_count = len(content_words)
-    # min_read = content_word_count / 200
     try:
         user_profile = Profile.objects.get(user=user_object)
     except:
@@ -22,7 +19,7 @@ def feed(request):
     return render(
         request,
         "feed.html",
-        {"user_profile": user_profile, "posts": posts ''', "min_read": int(min_read)'''},
+        {"user_profile": user_profile, "posts": posts},
     )
 
 
