@@ -6,4 +6,5 @@ News aggregator  web app that pulls in news articles from various sources using 
 
 **Backend:** Django
 
-**APIs:** NYTimes APIs, NewsAPI, GuardianAPI, Reuters News API, Hacker News API
+**APIs:** NYTimes APIs, NewsAPI, GuardianAPI, Reuters News API 
+
