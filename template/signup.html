@@ -8,28 +8,23 @@
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
-    <div class="signup-container">
+<div class="signup-container">
         <form method="post">
-            {% csrf_token %}
+          {% csrf_token %}
             <h2>Sign Up</h2>
-            {% if messages %}
-                {% for message in messages %}
-                    <p class="message">{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="text" id="username" name="username" placeholder="username" required="">
             
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="email" id="email" name="email" placeholder="email" required="">
             
-            <label for="password2">Confirm Password:</label>
-            <input type="password" id="password2" name="password2" required>
+            <input type="password" id="password" name="password" placeholder="password" required="">
+            
+            <input type="password" id="password2" name="password2" placeholder="confirm password" required="">
             
             <button type="submit">Sign Up</button>
+          <footer>
+            Have you got an account? <a href="/signin">Sign In</a>
+            </footer>
         </form>
     </div>
 </body>

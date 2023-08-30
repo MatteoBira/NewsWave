@@ -1,78 +1,124 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+  --s: 50px;
+  --c: hsl(226, 37%, 7%);
+  --_s: calc(2*var(--s)) calc(2*var(--s));
+  --_g: 35.36% 35.36% at;
+  --_c: #0000 66%,#20222a 68% 70%,#0000 72%;
+  background: 
+    radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s), 
+    radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s), 
+    radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s), 
+    radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s), 
+    repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s), 
+    radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
+  background-attachment: fixed;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #fff;
+}
+
+.signin-container {
+    background-color: hsl(227, 37%, 15%);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 448px;
+    height: 500px;
+    text-align: center;
+    color: #fff;
+    display: flex; /* Add this */
+    flex-direction: column; /* Add this */
+    justify-content: space-between; /* Add this */
+    align-items: center; /* Add this */
+}
+
+img {
+    max-width: 150px;
+    margin-top: 30px;
+    margin-left: 113px;
+    margin-right: 113px;
+    display:block;
 }
 
 
-
-.signin-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 450px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-bottom: 55px;
+    color: #fff;
 }
 
 form {
-    width: 400px;
-    height: 450px;
     display: flex;
     flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#logo {
-    max-height: 60.5px;
-    max-width: 122px;
-
-
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
+    height: 100%;
 }
 
 input[type="text"],
 input[type="password"] {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    padding: 16px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid hsl(227, 37%, 15%);
+    background-color: hsl(227, 37%, 36%);
+    color: #fff;
+    border-radius: 4px;
+}
+
+input {
+  width: 350px;
+}
+
+input + button {
+  margin-top: 100px;
+}
+.message + button {
+  margin-top: 50px;
+}
+input + input {
+  margin-top: 5px;
 }
 
 button {
-    padding: 10px;
-    background-color: #007bff;
+    padding: 12px;
+    background-color: #4285f4;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size:16px;
+    transition: background-color 0.25s ease;
 }
 
-.button:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: hsl(217, 89%, 68%);
+}
+
+button:active {
+  background-color: white;
+}
+
+
+.footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #777;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #4285f4;
+}
+
+.footer a:hover {
+    text-decoration: underline;
 }

@@ -11,21 +11,22 @@
     <div class="signin-container">
         <form method="post">
             {% csrf_token %}
-            <img id="logo" src="media/logo1black.png"/>
+            <img id="logo" src="media/logo1.png"/>
             <h2>Sign In</h2>
+
+            <input type="text" id="username" name="username" placeholder="username" required>
+            <input type="password" id="password" name="password" placeholder="password"required>
+
             {% if messages %}
                 {% for message in messages %}
                     <p class="message">{{ message }}</p>
                 {% endfor %}
             {% endif %}
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-
             <button type="submit">Sign In</button>
-            <a href='/signup' >or Sign Up </a>
+            <div class="footer">
+              <a href='/signup' >Forgot password? </a>
+              <a href='/signup' >Create account </a>
+            </div>
         </form>
     </div>
 </body>
