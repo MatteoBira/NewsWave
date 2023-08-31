@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles Feed</title>
     <link rel="stylesheet" href="{% static 'css/feed.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/article-preview.css' %}">
 </head>
 <body>
@@ -43,9 +44,9 @@
         </div>
         <h1 class="title">{{post.title}}</h1>
         <p class="description">{{post.description}}</p>
-
+         
         <div class="footer-info">
-          <a class="read-more" href="#">Read more</a>
+        <a class="read-more" href="{% url 'article' user=post.user  pk=post.id %}">Read more</a>
           <span class="read-time">{{post.min_read}} min read</span>
         </div>
       </div>

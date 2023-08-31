@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 from .models import Profile, Post
 from itertools import chain
 import random
@@ -21,6 +22,32 @@ def feed(request):
         "feed.html",
         {"user_profile": user_profile, "posts": posts},
     )
+
+
+@login_required(login_url="signin")
+def article(request, user, pk):
+    user_object = User.objects.get(username=request.user.username)
+    try:
+        post = Post.objects.get(id=pk)
+    except Post.DoesNotExist:
+        post = None
+        return redirect("/404")
+
+    try:
+        user_profile = Profile.objects.get(user=user_object)
+    except Profile.DoesNotExist:
+        return redirect("/signin")
+
+    context = {
+        "title": post.title,
+        "description": post.description,
+        "content": post.content,
+        "cover_img": post.cover_img,
+        "date": post.formatted_date,
+        "min_read": post.min_read,
+    }
+
+    return render(request, "article.html", {"user_profile": user_profile, **context})
 
 
 @login_required(login_url="signin")

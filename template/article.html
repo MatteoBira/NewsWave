@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Feed</title>
+    <link rel="stylesheet" href="{% static 'css/article.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+</head>
+<body>
+      <header class="main-header">
+      <div class="header-left">
+        <a href="/"><img src="{% get_media_prefix %}logo1.png" alt="Left Image"></a>
+      </div>
+
+      <div class="search__container">
+          <input class="search__input" type="text" placeholder="Search">
+      </div>
+
+      <div class="header-right">
+          {% if user_profile.partnership %}
+              <img id='add_post'src="media/plus.png" alt="">
+              {% endif %}
+          <img class="profile_img" src="{{ user_profile.profile_img.url }}" alt="">
+      </div>
+  </header>
+
+       </body>
+</html>
