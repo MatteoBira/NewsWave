@@ -13,7 +13,7 @@
 <body>
       <header class="main-header">
       <div class="header-left">
-        <a href="/"><img src="media/logo1.png" alt="Left Image"></a>
+        <a href="/"><img src="{% static 'logo1.png' %}" alt="Left Image"></a>
       </div>
 
       <div class="search__container">
@@ -24,7 +24,7 @@
           {% if user_profile.partnership %}
               <img id='add_post'src="media/plus.png" alt="">
               {% endif %}
-          <img class="profile_img" src="{{ user_profile.profile_img.url }}" alt="">
+              <a href="/upload_page"><img class="profile_img" src="{{ user_profile.profile_img.url }}" alt=""></a>
       </div>
   </header>
   <!--  <div id='posts_container'> -->

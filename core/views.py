@@ -4,9 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Profile, Post
-from itertools import chain
-import random
-
+from .forms import ArticleForm
 
 @login_required(login_url="signin")
 def feed(request):
@@ -50,26 +48,38 @@ def article(request, user, pk):
     return render(request, "article.html", {"user_profile": user_profile, **context})
 
 
+"""
+
+class BlogPostCreateView(CreateView):
+    model = Post
+    fields = ["title", "description", "content", "cover_img" ]
+
+"""
+
+
 @login_required(login_url="signin")
 def upload_page(request):
     user_object = User.objects.get(username=request.user.username)
+    form = ArticleForm()
     try:
         user_profile = Profile.objects.get(user=user_object)
     except:
         return redirect("/signin")
-    return render(request, "add.html", {"user_profile": user_profile})
+    return render(request, "add.html", {"user_profile": user_profile, "form": form})
 
 
 @login_required(login_url="signin")
 def upload(request):
     if request.method == "POST":
+        """
+        form = BlogPostCreateView(request.POST)
+        if form.is_valid():
+            form.save()
+        """
         user = request.user.username
         cover_img = request.FILES.get("image_upload")
         title = request.POST["title"]
         content = request.POST["content"]
-        print(user)
-        print(title)
-        print(content)
         new_post = Post.objects.create(
             user=user, cover_img=cover_img, title=title, content=content
         )
