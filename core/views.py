@@ -3,8 +3,12 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Profile, Post
+from .models import Profile, Post, nytPost
 from .forms import ArticleForm
+from django.http import JsonResponse
+from pynytimes import NYTAPI
+import os
+
 
 @login_required(login_url="signin")
 def feed(request):
@@ -21,6 +25,15 @@ def feed(request):
         {"user_profile": user_profile, "posts": posts},
     )
 
+nyt_key = os.environ.get("NYTimes_key")
+
+def fetchNytTopstories(request):
+    nyt = NYTAPI(nyt_key, parse_dates=True)
+    top_stories = nyt.top_stories()
+    for story in top_stories:
+        article = nytPost(user=Profile.objects.get(id_user=6), title=story['title'], abstract=story['abstract'], url=story['url'], published_date=story['published_date'])
+        nytPost.save()
+    return JsonResponse(top_stories, safe=False)
 
 @login_required(login_url="signin")
 def article(request, user, pk):
@@ -30,6 +43,8 @@ def article(request, user, pk):
     except Post.DoesNotExist:
         post = None
         return redirect("/404")
+    user_author = User.objects.get(username=user)
+    author = Profile.objects.get(user=user_author)
 
     try:
         user_profile = Profile.objects.get(user=user_object)
@@ -38,6 +53,8 @@ def article(request, user, pk):
 
     context = {
         "title": post.title,
+        "user": post.user,
+        "authorProfileImg": author.profile_img,
         "description": post.description,
         "content": post.content,
         "cover_img": post.cover_img,

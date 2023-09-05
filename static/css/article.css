@@ -20,3 +20,18 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+
+.content-section {
+  color: white;
+  background-color: hsl(227, 37%, 15%);
+  width: 60%;
+  font-size: 20px; 
+  margin: auto;
+  margin-top: 40px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+
+

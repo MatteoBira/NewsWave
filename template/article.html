@@ -12,7 +12,7 @@
 <body>
       <header class="main-header">
       <div class="header-left">
-        <a href="/"><img src="{% get_media_prefix %}logo1.png" alt="Left Image"></a>
+          <a href="/"><img src="{% static "logo1.png" %}" alt="Left Image"></a>
       </div>
 
       <div class="search__container">
@@ -27,6 +27,23 @@
               <a href="/upload"><img class="profile_img" src="{{ user_profile.profile_img.url }}" alt=""></a>
       </div>
   </header>
+    <div class="full-article">
+
+        <div class="content-section">
+
+        <h1 class="title">{{title|safe}}</h1>
+        <div class="content-header">
+
+
+            <a href="/"><img class="author-img" src="{{ authorProfileImg.url }}" alt=""></a>
+            <h3>{{ user }}</h3>
+        </div>
+        <hr>
+        <h3 class="description">{{description|safe}}</h3>
+        {{content|safe}}
+        </div>
+
+    </div>
 
        </body>
 </html>
