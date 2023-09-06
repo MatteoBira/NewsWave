@@ -8,6 +8,7 @@
     margin-bottom: 20px; 
     margin-top: 20px; 
     height: 30%;
+    font-family: "Roboto", sans-serif;
 }
 
 .grid-container {
@@ -43,15 +44,26 @@
 }
 
 .title {
-    font-size: 27px;
+    font-size: 35px;
     font-weight: bold;
     padding-top: 3%;
 }
 
 .description {
+    font-size: 20px;
     flex-grow: 1;
     padding-top: 10px;
 }
+
+p > span {
+    font-family: "Roboto", sans-serif!important;
+    font-size: 20px;
+}
+
+span {
+    font-family: "Roboto", sans-serif!important;
+}
+
 
 .read-more {
     display: flex;
@@ -81,4 +93,5 @@
 .read-time {
     font-size: 15px;
 }
+
 

@@ -33,14 +33,14 @@
 
         <h1 class="title">{{title|safe}}</h1>
         <div class="content-header">
-
-
             <a href="/"><img class="author-img" src="{{ authorProfileImg.url }}" alt=""></a>
-            <h3>{{ user }}</h3>
+            <div>
+                <h3>{{ user }} </h3>
+                <p>Published in {{ date }} &middot; {{ min_read }} min read<p>
+            </div>
         </div>
         <hr>
-        <h3 class="description">{{description|safe}}</h3>
-        {{content|safe}}
+        <div id="content">{{content|safe}}</div>
         </div>
 
     </div>

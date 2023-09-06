@@ -22,7 +22,7 @@
 
       <div class="header-right">
           {% if user_profile.partnership %}
-              <img id='add_post'src="media/plus.png" alt="">
+          <a href="/upload_page"><img id='add_post'src="{% static 'plus.png' %}" alt=""></a>
               {% endif %}
               <a href="/upload_page"><img class="profile_img" src="{{ user_profile.profile_img.url }}" alt=""></a>
       </div>
@@ -42,8 +42,8 @@
           </div>
 
         </div>
-        <h1 class="title">{{post.title}}</h1>
-        <p class="description">{{post.description}}</p>
+        <h1 class="title">{{post.title|safe}}</h1>
+        <p class="description">{{post.description|safe}}</p>
          
         <div class="footer-info">
         <a class="read-more" href="{% url 'article' user=post.user  pk=post.id %}">Read more</a>

@@ -117,6 +117,9 @@ TINYMCE_DEFAULT_CONFIG = {
    'theme': 'silver',
     'height': 500,
     'width': 1800,
+   'skin': 'oxide-dark',
+   'content_css': 'dark',
+   'content_style': "body { font-family: 'Roboto', sans-serif; }",
    'plugins': '''
            textcolor save link image media preview codesample contextmenu
            table code lists fullscreen  insertdatetime  nonbreaking
@@ -136,6 +139,6 @@ TINYMCE_DEFAULT_CONFIG = {
            ''',
    'contextmenu': 'formats | link image',
    'menubar': True,
-   'statusbar': True,
+   'statusbar': False,
 }
 
